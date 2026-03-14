@@ -1,21 +1,23 @@
-# Placement Insights Dashboard (React + C++)
-This repository has been upgraded from Python Streamlit to:
-- React dashboard UI (interactive charts)
-- C++ analytics engine for KPI computation
+# Placement Insights Dashboard (React + C++ REST API)
+Upgraded to an interview-ready stack:
+- Premium React dashboard with charts and KPI cards
+- C++ REST API for analytics (`GET /health`, `GET /kpis`)
+- CSV-driven branch and placement insights
 ## Structure
-- `frontend-react/` React + Recharts UI
-- `analytics-cpp/` C++17 metrics computation
-- `dataset/` placement sample data
-## Run React App
+- `frontend-react/` React + Vite dashboard
+- `analytics-cpp/` C++ analytics API
+- `dataset/` CSV data source
+## Run C++ API
+```bash
+cd analytics-cpp
+cmake -S . -B build
+cmake --build build
+./build/placement_analytics_api
+```
+## Run React Frontend
 ```bash
 cd frontend-react
 npm install
 npm run dev
 ```
-## Build C++ Analytics
-```bash
-cd analytics-cpp
-cmake -S . -B build
-cmake --build build
-./build/placement_analytics
-```
+Frontend calls API on `http://localhost:8082`.
